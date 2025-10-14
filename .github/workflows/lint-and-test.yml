@@ -1,0 +1,44 @@
+name: page-region-unavailable - Test PR
+
+on:
+  pull_request:
+    branches:
+      - main
+
+defaults:
+  run:
+    shell: bash
+    working-directory: page-region-unavailable
+
+jobs:
+  test:
+    name: Lint & Test
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Use node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - name: Install node-gyp
+        run: yarn global add node-gyp
+      - name: Cache node-modules
+        id: node-modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            page-region-unavailable/node_modules
+          key: fe-node-modules-${{ hashFiles('page-region-unavailable/yarn.lock', 'page-region-unavailable/patches/*.patch') }}
+      - if: ${{ steps.node-modules.outputs.cache-hit != 'true' }}
+        name: yarn install basic packages
+        run: yarn install --frozen-lockfile
+      - if: ${{ steps.node-modules.outputs.cache-hit != 'true' }}
+        name: yarn reinstall after generate
+        run: yarn install --frozen-lockfile
+      - name: Lint and typecheck
+        run: |
+          yarn run lint
+          yarn run typecheck
