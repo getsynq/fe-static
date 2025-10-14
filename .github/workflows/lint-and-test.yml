@@ -13,7 +13,6 @@ defaults:
 jobs:
   test:
     name: Lint & Test
-    needs: check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
