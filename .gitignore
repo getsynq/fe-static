@@ -1,0 +1,31 @@
+.history
+.idea
+.claude
+# Vscode files
+.vscode
+# Debugger binary
+__debug_bin
+/bin/*
+synq.svg
+.DS_Store
+Pulumi.local.yaml
+docs
+.imagehash
+.env*
+/api/
+Pulumi.local*.yaml
+node_modules/
+.lh
+kernel-*/app
+kernel-*/kernel-*
+**/customers/
+/kernel-cll/cll-rs
+/dev-infra/kernel/gen/go.mod
+fe-test
+gen
+gen_public
+/meili_data
+__pycache__/
+/*.json
+.*json
+mcps

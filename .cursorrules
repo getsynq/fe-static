@@ -1,0 +1,17 @@
+# FE Static Architecture - Cursor Rules
+
+This repository follows a architecture where:
+
+- each folder is separate Astro website
+- we use Astro as a framework for generating static pages
+- /static-website-template is template which should be used to create new static websites
+
+---
+
+## General Rules
+
+- **Use /static-website-template to generate new static websites** to facilitate mocking and testing.
+- **Avoid code duplication**. Extract shared logic into reusable helper methods.
+- \*\*When working on UI components please use shadcn components from
+
+---
