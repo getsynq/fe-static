@@ -6,8 +6,8 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://getsynq.github.io/fe-static",
-  base: "/fe-static",
+  site: "https://app.us.synq.io",
+  base: "/",
   vite: {
     plugins: [tailwindcss()],
   },
